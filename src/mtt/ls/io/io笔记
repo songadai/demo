@@ -1,0 +1,19 @@
+根据源头分类:
+    以文件为源头的file系列.
+        FileInputStream,FileOutputStream 文件字节流 数据传送单位是字节数组
+        FileReader,FileWriter 文件字符流 数据传送单位是字符数组
+        BufferedInputStream,BufferOutputStream 缓冲字节流
+         BufferedReader，BufferedWriter 缓冲字节流
+    以内存中的字节数组为源头.
+        ByteArrayInputStream,ByteArrayOutputStream  字节数组流
+    以对象为数据源
+        ObjectInputStream,ObectOutputStream
+    处理流:对其他流进行包装
+        ObjectInputStream,ObectOutputStream 对象流
+        DataInputStream,DataOuputStream 数据流
+        BufferedInputStream,BufferOutputStream 缓冲字节流
+        BufferedReader，BufferedWriter 缓冲字节流
+    转化流:将字节流转化为字符流
+        InputStreamReader OutputStreamWriter
+
+
