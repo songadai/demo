@@ -15,5 +15,8 @@
         BufferedReader，BufferedWriter 缓冲字节流
     转化流:将字节流转化为字符流
         InputStreamReader OutputStreamWriter
+装饰者模式
+    让原来的类有更加强悍的能力。
+
 
 
