@@ -1,0 +1,9 @@
+遇到的问题:
+1.java.io.EOFException
+    流使用错误。
+    本应该是
+    ByteArrayInputStream byteInputStream = new ByteArrayInputStream(data);
+    DataInputStream dataInputStream = new DataInputStream(byteInputStream);
+    结果使用成
+    ByteInputStream byteInputStream = new ByteInputStream();
+    DataInputStream dataInputStream = new DataInputStream(byteInputStream);
