@@ -1,7 +1,6 @@
 package mtt.ls.net;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
+import java.io.*;
 import java.net.ServerSocket;
 import java.net.Socket;
 
@@ -17,37 +16,55 @@ public class SocketServer
     public static void main(String[] args)
     {
         ServerSocket server=null;
-        DataOutputStream dataOutputStream=null;
+        BufferedWriter out=null;
+        BufferedReader in=null;
         try
         {
             //创建套接字
             server=new ServerSocket(8888);
+            System.out.println("已经建立监听");
             Socket socket=server.accept();
-            System.out.println("已接收到客户端请求,准备响应");
-            String msg="我是服务端发送的数据";
+            in=new BufferedReader(new InputStreamReader(socket.getInputStream()));
+            out=new BufferedWriter(new OutputStreamWriter(socket.getOutputStream()));
+            while (true){
+                String msg1=in.readLine();
+                System.out.println("客户端说:"+msg1);
+                String msg="你好，我是服务器";
+                out.write(msg+"\n");
+                out.flush();
+                if("end".equals(msg1)){
+                    break;
+                }
+            }
             //使用流的方式发送数据
-            dataOutputStream=new DataOutputStream(socket.getOutputStream());
-            dataOutputStream.writeUTF(msg);
-            dataOutputStream.flush();
-
-
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }finally
         {
-            if(dataOutputStream!=null){
+            if(out!=null){
 
                 try
                 {
-                    dataOutputStream.close();
+                    out.close();
                 }
                 catch (IOException e)
                 {
                     e.printStackTrace();
                 }
             }
+            if(in!=null){
+                try
+                {
+                    in.close();
+                }
+                catch (IOException e)
+                {
+                    e.printStackTrace();
+                }
+            }
+
         }
     }
 }
