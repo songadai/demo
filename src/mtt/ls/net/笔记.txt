@@ -4,6 +4,8 @@
     本应该是
     ByteArrayInputStream byteInputStream = new ByteArrayInputStream(data);
     DataInputStream dataInputStream = new DataInputStream(byteInputStream);
-    结果使用成
+    结果使用成.
     ByteInputStream byteInputStream = new ByteInputStream();
     DataInputStream dataInputStream = new DataInputStream(byteInputStream);
+2.服务器只响应了第一次请求或者不响应请求
+    服务器端一次请求调用了两次readline()函数.或者忘记刷新flush函数,或者没有加回车符.
