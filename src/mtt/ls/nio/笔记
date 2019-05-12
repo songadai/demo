@@ -1,0 +1,3 @@
+抛出java.nio.channels.nonwritablechannelexception异常
+是因为我的fileChanned是通过fileInputStream get出来的，所以只可读
+当我换成从RandomAccessFile get出来的时候问题就解决了。
